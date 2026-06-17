@@ -9,11 +9,11 @@ WORKDIR /app
 COPY video.mp4 .
 COPY start.sh .
 
-# نعطيو صلاحية التشغيل للـ script
 RUN chmod +x start.sh
-
-# سيرفر وهمي
 RUN echo "const http=require('http');http.createServer((req,res)=>res.end('INFINITY GEN 24/7 Live')).listen(process.env.PORT||3000);" > server.js
 
-# نشغلو الـ script لي فيه الزوج اوامر
+# هذا السطر هو الحل: نلغو ENTRYPOINT تاع FFmpeg
+ENTRYPOINT []
+
+# ضرك CMD يخدم نورمال
 CMD ["./start.sh"]
