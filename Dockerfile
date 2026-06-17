@@ -6,7 +6,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 RUN apt-get install -y nodejs
 
 WORKDIR /app
-COPY video.mp4 .
+COPY background.jpg .
 COPY start.sh .
 
 RUN chmod +x start.sh
